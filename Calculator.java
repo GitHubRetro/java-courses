@@ -13,7 +13,7 @@ public class Calculator {
 	*/
 	public void add(int ... params) {
 		for (Integer param : params) {
-			this.result+=params;
+			this.result += param;
 		}
 	}
 	

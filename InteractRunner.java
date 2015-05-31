@@ -5,7 +5,7 @@ import java.util.Scanner;
 */
 public class InteractRunner {
 	public static void main(String[] arg) {
-		Scanner reader = new scanner(System.in);
+		Scanner reader = new Scanner(System.in);
 		try {
 			Calculator calc = new Calculator();
 			String exit = "no";
@@ -18,7 +18,7 @@ public class InteractRunner {
 				System.out.println("Result : "+calc.getResult());
 				calc.cleanResult();
 				System.out.println("Exit : yes/no ");
-				exit=reder.next();
+				exit=reader.next();
 			}
 		} finally {
 			reader.close();
