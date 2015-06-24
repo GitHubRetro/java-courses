@@ -15,17 +15,14 @@ public class InteractRunner {
 			while(!exit.equals("yes")) {
 				System.out.println("Enter first arg : ");
 				String first = reader.next();
-				for (int i=0;i<1;) {
-				System.out.println("Operation + or - or / or * or ^ : ");
-				operation = reader.next();
-				if(operation.equals("+") | operation.equals("-") | operation.equals("/") | operation.equals("*") | operation.equals("^"))
-					i=1;
-				else System.out.println("Enter + or - or / or * or ^ :");
-				}
 				System.out.println("Enter second arg : ");
 				String second = reader.next();
-			    calc.operations(operation);
-				calc.add(Integer.valueOf(first), Integer.valueOf(second));
+				try {
+					calc.div(Integer.valueOf(first), Integer.valueOf(second));
+				} catch (UserException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Pleas enter two args.");
+				}
 				System.out.println("Result : "+calc.getResult());
 				calc.cleanResult();
 				System.out.println("Exit : yes/no ");

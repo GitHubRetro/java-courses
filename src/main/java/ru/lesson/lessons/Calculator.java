@@ -9,38 +9,34 @@ public class Calculator {
 	  Результат вычисления.
      */
      private int result;
-	 public String opr;
 	 /**
 	  * Суммируем аргументы.
 	  * @param params Аргументы суммирования.
 	  */
-	public void operations(String op) {
-		this.opr=op;
-	}
-	
 	public void add(int ... params) {
-		int i=0;
-		for (Integer param : params) {
-			if(opr.equals("+"))
+		for (int param : params) {
 			   this.result +=  param;
-		    else { if(i==0) {
-				this.result=param;
-				i++;
-			}
-			     else {
-		    if(opr.equals("-"))
-			   this.result = this.result-param;
-		    if(opr.equals("*"))
-			   this.result = this.result*param;
-		    if(opr.equals("/"))
-			   this.result = this.result/param;
-		    if(opr.equals("^"))
-			   this.result = (int)Math.pow(this.result, param);
-			}
-		}
 		}
 	}
-	
+
+	/**
+	 * Вычисляем деление
+	 * @param args входящие аргументы.
+	 * @throws UserException Если аргументов нет, выкидываем исключение.
+	 */
+	public void div(int ... args) throws UserException {
+		if (args.length>0) {
+			this.result =args[0];
+			for (int params : args) {
+				if (params==0) {
+					throw new IllegalArgumentException("You try to div by 0. Pleas change arg!");
+				}
+				this.result /= params;
+			}
+		} else {
+			throw new UserException("You should enter args!");
+		}
+	}
 	/**
 	    Получить результат.
 		@return результат вычисления.
